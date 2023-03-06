@@ -10,7 +10,7 @@ I don't like the dependencies `pass` pulls on my system and I don't need many of
 Just make it executable with `chmod +x pm` and put it in your path. (preferably `~/.local/bin/`).
 ### Optional
 - To generate passwords, do the same for my `pwgen` script.
-- To generate passphrases, copy the file eff_large_wordlist.txt (or any other wordlist you want) into `~/.local/share/`.
+- To generate passphrases, copy the file `eff_large_wordlist.txt` (or any other wordlist you want) into `~/.local/share/`.
 ## Usage
 
 ### Insert a new password
