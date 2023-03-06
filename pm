@@ -9,7 +9,7 @@ if [ -z "${entry_name}" ]; then
   echo "No entry name" && exit 1
 fi
 
-alias gpg="gpg --quiet --yes --batch --default-recipient-self"
+GPG="gpg --quiet --yes --batch --default-recipient-self"
 
 add() {
   if [ -e "${entry_path}" ]; then
@@ -20,11 +20,11 @@ add() {
     echo "No password given." && exit 1
   fi
   mkdir -p "${entry_path%/*}"
-  printf '%s\n' "${1}" | gpg --encrypt --output "${entry_path}"
+  printf '%s\n' "${1}" | $GPG --encrypt --output "${entry_path}"
 }
 
 case "${1}" in
-  "s") gpg --decrypt "${entry_path}" ;;
+  "s") $GPG --decrypt "${entry_path}" ;;
   "i") 
     IFS= read -r -s -p "Password for '${entry_name}': " password && echo
     add "${password}" ;;
