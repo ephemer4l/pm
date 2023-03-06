@@ -9,22 +9,16 @@ if [ -z "${entry_name}" ]; then
   echo "No entry name" && exit 1
 fi
 
-GPG="gpg --quiet --yes --batch --default-recipient-self"
-
 add() {
-  if [ -e "${entry_path}" ]; then
-    read -p "Entry exists. Override? [y/n] " -n 1 -r; echo
-    [[ $REPLY =~ ^[Yy]$ ]] || exit 1
-  fi
   if [ -z "${1}" ]; then
     echo "No password given." && exit 1
   fi
   mkdir -p "${entry_path%/*}"
-  printf '%s\n' "${1}" | $GPG --encrypt --output "${entry_path}"
+  printf '%s\n' "${1}" | gpg --default-recipient-self --encrypt --output "${entry_path}"
 }
 
 case "${1}" in
-  "s") $GPG --decrypt "${entry_path}" ;;
+  "s") gpg --decrypt --quiet "${entry_path}" ;;
   "i") 
     IFS= read -r -s -p "Password for '${entry_name}': " password && echo
     add "${password}" ;;
