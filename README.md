@@ -25,11 +25,11 @@ pm r name
 ```sh
 pm s name
 ```
-### Generate a new password with length k
+### Generate and add new password with length k
 ```sh
 pm g name k
 ```
-### Generate a passphrase with k words
+### Generate and add passphrase with k words
 ```sh
 pm gw name k
 ```
