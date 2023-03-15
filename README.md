@@ -9,8 +9,7 @@ I don't like the dependencies `pass` pulls on my system and I don't need many of
 - First of all you need to have a gpg key.
 - If you have a gpg key, make the script executable with `chmod +x pm` and put it in your path. (preferably `~/.local/bin/`).
 ### Optional
-- To generate passwords, do the same for my `gp` script.
-- To generate passphrases, copy the file `eff_large_wordlist.txt` into `~/.local/share/`.
+- To generate passwords, set up my `gp` script.
 ### Clean up ~
 `pm` will by default place your passwords into `~/.password-store`. You can control where this folder is placed by the `PASSWORD_STORE_DIR` environment variable.
 ## Usage
